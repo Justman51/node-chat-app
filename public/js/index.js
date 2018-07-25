@@ -11,6 +11,11 @@ socket.on('connect',  function() {
 
 socket.on('newMessage', function(message) { // receiver is here
     console.log('Got your message', message);
+
+    var li = $('<li></li>');
+    li.text(`${message.from}: ${message.text}`);
+
+    $('#messages').append(li);
 });
 
 
@@ -19,10 +24,21 @@ socket.on('disconnect', function() {
     console.log('Disconnected from server');
 });
 
-socket.emit('createMessage', {
-    from: 'frank',
-    text: 'Hi'
-}, function(data) {
-    console.log('Got it', data);
+// socket.emit('createMessage', {
+//     from: 'frank',
+//     text: 'Hi'
+// }, function(data) {
+//     console.log('Got it', data);
+// });
+
+$('#message-form').on('submit', function(e) {
+    e.preventDefault();
+
+    socket.emit('createMessage', {
+        from: 'User',
+        text: $('input[name=message]').val()
+    }, function() {
+        console.log('Got it');
+    })
 })
 
