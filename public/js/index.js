@@ -8,9 +8,12 @@ socket.on('connect',  function() {
     // })
 });
 
+
 socket.on('newMessage', function(message) { // receiver is here
     console.log('Got your message', message);
 });
+
+
 
 socket.on('disconnect', function() {
     console.log('Disconnected from server');
