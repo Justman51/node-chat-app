@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+ol {
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 98vh;
+    width: 100%;
+    background-color: green;
+}
+
+.main-container {
+    display: inline-block;
+    height: 100%;
+    width: 80%;
+    background-color: white;
+}
+
+.sidebar-left {
+    display: inline-block;  
+    height: 100%;
+    background-color: blue;
+    width: 20%;
+    text-align: center;
+}
+
+#messages {
+    height: 95%;
+}
+footer {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    background-color: gray;
+}
+#message-form {
+    
+    width: 90%;
+}
+
+#input {
+    display: inline-block;
+    width: 90%;
+    padding: 5px;
+    margin: 5px;
+}
+
+#button {
+    padding: 5px;
+    margin: 5px;
+}
+
+#send-location {
+    padding: 5px;
+    margin: 5px;
+}

@@ -25,7 +25,8 @@ socket.on('newLocationMessage', function(message) {
     var a = $('<a target="_blank">My current Location</a>');
    li.text(`${message.from}: `);
    a.attr('href', message.url)
-    $('#messages').append(li).append(a);
+   li.append(a)
+    $('#messages').append(li);
 });
 
 
@@ -44,11 +45,13 @@ socket.on('disconnect', function() {
 $('#message-form').on('submit', function(e) {
     e.preventDefault();
 
+    var messsageTextBox = $('input[name=message]');
+
     socket.emit('createMessage', {
         from: 'User',
-        text: $('input[name=message]').val()
+        text: messsageTextBox.val()
     }, function() {
-        console.log('Got it');
+         messsageTextBox.val('');
     })
 });
 

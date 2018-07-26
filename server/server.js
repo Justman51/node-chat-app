@@ -28,7 +28,7 @@ io.on('connection', (socket) =>{
     socket.on('createMessage', (message, callback)=> { // emit to only one user connected
       // console.log('Got your message thanks', message);
            io.emit('newMessage', generateMessage(message.from, message.text));
-           callback('This is from the server');   
+           callback();   
     });
 
     socket.on('createLocationMessage', (coords) => {
